@@ -1,8 +1,10 @@
-import { Box, Typography,ThemeProvider, createTheme,List,ListItem,ListItemButton,ListItemText,Button } from '@mui/material'
+import { Box, Typography,ThemeProvider, createTheme,List,ListItem,ListItemButton,ListItemText,Button, MenuItem } from '@mui/material'
 import {Link} from 'react-router-dom'
 import AlgoExpertLogo from '../assets/logoAlgoExpert.png'
 
 import { styled } from "@mui/material/styles";
+import ProductNavigationMenu from './MenuNavigation/ProductNavigationMenu';
+import ContentNavigationMenu from './MenuNavigation/ContentNavigationMenu';
 const MainNavigation = () => {
 
     const theme = createTheme({
@@ -65,8 +67,8 @@ const MainNavigation = () => {
                 </Box>
                     <Typography variant="h6" color="primary.main">Ace the Technical Interviews</Typography>
             </Link>
-            <Box>
-                <List sx={{display:"flex",color:"#fff",ml:"80px",mr:"80px",p:0}}>
+            <Box sx={{display:"flex"}}>
+                {/* <List sx={{display:"flex",color:"#fff",ml:"80px",mr:"80px",p:0}}>
                     <ListItem sx={{p:0,"&:focus":{
                         backgroundColor:"none"
                     }}}>
@@ -93,7 +95,22 @@ const MainNavigation = () => {
                             }}></ListItemText>
                         </ListItemButton>
                     </ListItem>
-                </List>
+                </List> */}
+                <ProductNavigationMenu />
+                <ContentNavigationMenu/>
+                <Link to="" style={linkStyle}>
+                    <MenuItem sx={{
+                        color:"#fff"
+                    }}>Team</MenuItem>
+                </Link>
+                <Link to="" style={linkStyle}>
+                    <MenuItem sx={{
+                        color:"#fff",
+                        fontStyle:"italic",
+                        fontWeight:"bold"
+                    }}>Purchases</MenuItem>
+                </Link>
+
             </Box>
             <Box sx={{width:"250px",textAlign:"center"}}>
                 <LogInButton variant="outlined" >Log In</LogInButton>
