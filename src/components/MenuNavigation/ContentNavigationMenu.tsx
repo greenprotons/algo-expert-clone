@@ -1,8 +1,20 @@
 import React from 'react'
-import { Box, Button,Menu,MenuItem,Typography } from '@mui/material'
+import { Box, Button,Menu,MenuItem,Typography,MenuList,List,ListItem,ListItemText } from '@mui/material'
 import {Link} from 'react-router-dom'
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+import GradingIcon from '@mui/icons-material/Grading';
+import CodeIcon from '@mui/icons-material/Code';
+import DatasetIcon from '@mui/icons-material/Dataset';
+import MonitorIcon from '@mui/icons-material/Monitor';
+import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
+import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
+import DataObjectIcon from '@mui/icons-material/DataObject';
+import JavascriptIcon from '@mui/icons-material/Javascript';
+import IntegrationInstructionsOutlinedIcon from '@mui/icons-material/IntegrationInstructionsOutlined';
+// import    from '@mui/icons-material/ExpandMore';
+// import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+
+import { NestedMenuItem } from 'mui-nested-menu';
+
 const ContentNavigationMenu = () => {
     const [anchorEl, setElement] = React.useState<null | HTMLElement>(null);   
     const open = Boolean(anchorEl);
@@ -19,16 +31,28 @@ const ContentNavigationMenu = () => {
       padding: "15px",
       borderRadius: "4px",
       display:"block",
-      color:"#000"
+      color:"#000",
     }
     const menuListItemTitle = {
+      // p:"20px",
+      pl:"10px",
+      pr:"10px",
+      mt:"-8px",
+      mb:"-8px",
+      bgcolor: "#626ee3",
+      color:"#fff",
+      display: "flex",
+      flexDirection: "column",
+    }
+
+    const listItemText = {
       alignItems: "center",
-    color: "#inherit",
-    display: "flex",
-    fontFamily: "Open Sans,Helvetica,Arial,sans-serif",
-    fontSize: "20px",
-    fontWeight: "600",
-    m: 0,
+      backgroundColor: "rgba(0,0,0,.3)",
+      borderRadius: "4px",
+      color: "#fff",
+      display: "flex",
+      height: "70px",
+      padding: "0 20px"
     }
     const linkStyle = {
       textDecoration:"none",
@@ -37,27 +61,148 @@ const ContentNavigationMenu = () => {
     {
       id:1,
       title:"Algo Expert",
-      chevronIcon: KeyboardArrowRightIcon,
-      detail:{
-        id:1,
-        item1:"Coding Interview Questions"
-      }
+      // chevronIcon: KeyboardArrowRightIcon,
+      submenu: [
+        {
+          id:1,
+          icon:GradingIcon,
+          title: 'Coding Interview Questions',
+        },
+        {
+          id:2,
+          icon:DatasetIcon,
+          title: 'Data Structures Crash Course',
+        },
+        {
+          id:3,
+          icon:CodeIcon,
+          title: 'Coding Interview Assessments',
+        },
+        {
+          id:4,
+          icon:MonitorIcon,
+          title: 'Mock Coding Interviews',
+        },
+        {
+          id:5,
+          icon:EmojiObjectsIcon,
+          title: 'Coding Interview Tips',
+        },
+      ],
     },
     {
       id:2,
       title:"SystemExpert",
+      submenu: [
+        {
+          id:1,
+          icon:AutoAwesomeIcon,
+          title: 'Systems Design Fundamentals',
+        },
+        {
+          id:2,
+          icon:GradingIcon,
+          title: 'Systems Design Questions',
+        },
+        {
+          id:3,
+          icon:CodeIcon,
+          title: 'Systems Design Quiz',
+        },
+        {
+          id:4,
+          icon:EmojiObjectsIcon,
+          title: 'Systems Design Interview Tips',
+        },
+      ],
     },
     {
       id:3,
       title:"MLExpert",
+      submenu: [
+        {
+          id:1,
+          icon:AutoAwesomeIcon,
+          title: 'ML Crash Course',
+        },
+        {
+          id:2,
+          icon:GradingIcon,
+          title: 'ML Coding Questions',
+        },
+        {
+          id:3,
+          icon:CodeIcon,
+          title: 'Large-Scale ML',
+        },
+        {
+          id:4,
+          icon:EmojiObjectsIcon,
+          title: 'ML Design Questions',
+        },
+        {
+          id:5,
+          icon:AutoAwesomeIcon,
+          title: 'ML Quiz',
+        },
+        {
+          id:6,
+          icon:CodeIcon,
+          title: 'ML Interview Tips',
+        },
+      ],
     },
     {
       id:4,
       title:"FrontEndExpert",
+      submenu: [
+        {
+          id:1,
+          icon:AutoAwesomeIcon,
+          title: 'Frontend Interview Questions',
+        },
+        {
+          id:2,
+          icon:CodeIcon,
+          title: 'HTML Crash Course',
+        },
+        {
+          id:3,
+          icon:DataObjectIcon,
+          title: 'CSS Crash Course',
+        },
+        {
+          id:4,
+          icon:JavascriptIcon,
+          title: 'JavaScript Crash Course',
+        },
+        {
+          id:5,
+          icon:EmojiObjectsIcon,
+          title: 'React Crash Course ',
+        },
+        {
+          id:6,
+          icon:IntegrationInstructionsOutlinedIcon,
+          title: 'Web Dev Fundamentals',
+        },
+        {
+          id:7,
+          icon:CodeIcon,
+          title: 'Frontend Quiz',
+        },
+      ],
     },
     {
       id:5,
       title:"Bonus",
+      submenu: [
+        {
+          id:1,
+          icon:AutoAwesomeIcon,
+          title: 'Behavioral Interview Prep',
+        },
+      ],
     }
   ]
   return (
@@ -86,15 +231,28 @@ const ContentNavigationMenu = () => {
           width:"260px",
           left:"720px !important",
           position:"absolute",
-          overflow:"hidden"
+          overflow:"hidden",
+          // paddingTop:0
         }}}
       > 
         <Link to=""  style={linkStyle}>
           {listData.map((list,key)=>{
               return(
-                <MenuItem key={key} onClick={handleClose} sx={{...menuListItem,display:"flex",justifyContent:"space-between"}}>
-                  <Typography variant="h3" sx={{...menuListItemTitle}}>{list.title}</Typography><ExpandMoreIcon    />
-                </MenuItem>
+                
+                  <NestedMenuItem label={list.title} parentMenuOpen={!!anchorEl} key={key} onClick={handleClose} sx={{...menuListItem,display:"flex"}}>
+                    {list.submenu?.map((type,index)=>{
+                      return(
+                        <List sx={{...menuListItemTitle}}>
+                          <ListItem key={index} sx={{...listItemText,pt:0,pb:0}}>
+                            <type.icon sx={{pr:"10px"}}/>
+                            <ListItemText   primary={type.title}/>
+                            {/* <Typography variant="h3" sx={{...menuListItemTitle}} key={index}>{type.title}</Typography> */}
+                          </ListItem>
+                        </List>
+                      )
+                    })}
+                  </NestedMenuItem>
+                
               )
             })
           }
