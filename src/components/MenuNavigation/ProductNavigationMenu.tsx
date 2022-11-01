@@ -41,37 +41,36 @@ const ProductNavigationMenu = () => {
       id:1,
       title:"Algo Expert",
       description:"Ace the Coding Interviews",
-      // background:"#4c5adf"
-      hover : function(e){
-        e.target.style.background = '#8d96eb';
-        e.target.style.color = "#fff";
-      },
-      hoverLeave : function(e){
-        e.target.style.background = '#fff';
-      }
+      bgColor:"#8d96eb",
+      color:"#fff"
     },
     {
       id:2,
       title:"SystemExpert",
       description:"Ace the system Interviews",
-      "&:hover":{
-        background:"#000"
-      }
+      bgColor:"#890023",
+      color:"#fff"
     },
     {
       id:3,
       title:"MLExpert",
-      description:"Ace the Machine Learning Interviews"
+      description:"Ace the Machine Learning Interviews",
+      bgColor:"#f37f1b",
+      color:"#fff"
     },
     {
       id:4,
       title:"FrontEndExpert",
-      description:"Ace the Frontend Interviews"
+      description:"Ace the Frontend Interviews",
+      bgColor:"#11967e",
+      color:"#fff"
     },
     {
       id:5,
       title:"ProgrammingExpert",
-      description:"Learn to code"
+      description:"Learn to code",
+      bgColor:"#f21b3f",
+      color:"#fff"
     }
   ]
   return (
@@ -106,7 +105,11 @@ const ProductNavigationMenu = () => {
         <Link to=""  style={linkStyle}>
           {listData.map((list,key)=>{
               return(
-                <MenuItem key={key} onClick={handleClose} onMouseOver={list.hover} onMouseLeave={list.hoverLeave} sx={{...menuListItem,}}><div></div>
+                <MenuItem key={key} onClick={handleClose} sx={{...menuListItem,
+                                                                "&:hover":{
+                                                                  bgcolor:list.bgColor,
+                                                                  color:list.color
+                                                                  }}}>
                   <Typography variant="h3" sx={{...menuListItemTitle}}>{list.title}</Typography>
                   <Typography variant="body2" sx={{...menuListItemDes}}>{list.description}</Typography>
                 </MenuItem>
