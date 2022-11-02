@@ -14,7 +14,8 @@ const Hero = () => {
         gap: "50px",
         justifyContent: "center",
         minHeight: "320px",
-        backgroundColor:"#02203c"
+        backgroundColor:"#02203c",
+        height:"400px"
         }}>
 
     {/* Flex Colomn 1 */}
@@ -62,6 +63,7 @@ const Hero = () => {
                    height:"500px" ,
                    pt:"50px",
                    display:"flex",
+                   position:"absolute",
                    transform:"rotate3d(.5,-.866,0,15deg) rotate(-1deg)"
                 }}>
 

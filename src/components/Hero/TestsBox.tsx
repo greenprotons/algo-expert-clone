@@ -70,6 +70,7 @@ const TestsBox = () => {
             overflow:"hidden",
             display: "flex",
             flexDirection: "column",
+            boxShadow:"0 27.5px 40px -17.5px rgb(0 0 0 / 40%), 46.2px 37.5px 40px -17.5px rgb(0 0 0 / 40%)"
         }}>
             <Typography variant="body2" sx={{
                 backgroundColor:"#15314b",

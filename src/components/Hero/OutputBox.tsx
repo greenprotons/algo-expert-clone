@@ -51,6 +51,7 @@ const OutputBox = () => {
             overflow:"hidden",
             display: "flex",
             flexDirection: "column",
+            boxShadow:"0 37.5px 40px -17.5px rgb(0 0 0 / 40%), 46.2px 37.5px 70px -7.5px rgb(0 0 0 / 50%)"
         }}>
             <Box sx={{
                 backgroundColor:"#15314b",
@@ -97,10 +98,10 @@ const OutputBox = () => {
                     {
                         item.nestedSpan.map((nested, index)=>{
                             return( 
-                                <Box key={index}>
+                                <>
                                     <nested.icon sx={{width:"20%",fontSize:"29px",color:nested.iconColor}}/>
-                                    <Box sx={{...outputListItems,bgcolor: nested.color,width:nested.width}}>{nested.anotherSpan}</Box>
-                                </Box>
+                                    <Box sx={{...outputListItems,bgcolor: nested.color,width:nested.width}} key={index}>{nested.anotherSpan}</Box>
+                                </>
                             )
                         })
                     }
