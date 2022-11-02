@@ -91,16 +91,16 @@ const OutputBox = () => {
                                 borderRadius: "3px",
                             }
                     }}>
-            {outputProgressBar.map((item,key)=>{
+            {outputProgressBar.map((item,index)=>{
                 return(
-                    <Box sx={{...outputList,alignItems:"center"}} key={key}>{item.span}
+                    <Box sx={{...outputList,alignItems:"center"}} key={index}>{item.span}
                     {
-                        item.nestedSpan.map((nested, nestedkey)=>{
+                        item.nestedSpan.map((nested, index)=>{
                             return( 
-                                <>
+                                <Box key={index}>
                                     <nested.icon sx={{width:"20%",fontSize:"29px",color:nested.iconColor}}/>
-                                    <Box sx={{...outputListItems,bgcolor: nested.color,width:nested.width}} key={nestedkey}>{nested.anotherSpan}</Box>
-                                </>
+                                    <Box sx={{...outputListItems,bgcolor: nested.color,width:nested.width}}>{nested.anotherSpan}</Box>
+                                </Box>
                             )
                         })
                     }

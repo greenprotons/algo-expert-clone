@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, Button,Menu,MenuItem,Typography,MenuList,List,ListItem,ListItemText } from '@mui/material'
+import { Box, Button,Menu,List,ListItem,ListItemText } from '@mui/material'
 import {Link} from 'react-router-dom'
 import GradingIcon from '@mui/icons-material/Grading';
 import CodeIcon from '@mui/icons-material/Code';
@@ -10,8 +10,7 @@ import AutoAwesomeIcon from '@mui/icons-material/AutoAwesome';
 import DataObjectIcon from '@mui/icons-material/DataObject';
 import JavascriptIcon from '@mui/icons-material/Javascript';
 import IntegrationInstructionsOutlinedIcon from '@mui/icons-material/IntegrationInstructionsOutlined';
-// import    from '@mui/icons-material/ExpandMore';
-// import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
+
 
 import { NestedMenuItem } from 'mui-nested-menu';
 
@@ -34,7 +33,6 @@ const ContentNavigationMenu = () => {
       color:"#000",
     }
     const menuListItemTitle = {
-      // p:"20px",
       pl:"10px",
       pr:"10px",
       mt:"-8px",
@@ -61,7 +59,6 @@ const ContentNavigationMenu = () => {
     {
       id:1,
       title:"Algo Expert",
-      // chevronIcon: KeyboardArrowRightIcon,
       submenu: [
         {
           id:1,
@@ -232,27 +229,24 @@ const ContentNavigationMenu = () => {
           left:"720px !important",
           position:"absolute",
           overflow:"hidden",
-          // paddingTop:0
         }}}
       > 
         <Link to=""  style={linkStyle}>
-          {listData.map((list,key)=>{
+          {listData.map((list,index)=>{
               return(
                 
-                  <NestedMenuItem label={list.title} parentMenuOpen={!!anchorEl} key={key} onClick={handleClose} sx={{...menuListItem,display:"flex"}}>
+                  <NestedMenuItem label={list.title} parentMenuOpen={!!anchorEl} key={index} onClick={handleClose} sx={{...menuListItem,display:"flex"}}>
                     {list.submenu?.map((type,index)=>{
                       return(
-                        <List sx={{...menuListItemTitle}}>
-                          <ListItem key={index} sx={{...listItemText,pt:0,pb:0}}>
+                        <List key={index} sx={{...menuListItemTitle}}>
+                          <ListItem sx={{...listItemText,pt:0,pb:0}}>
                             <type.icon sx={{pr:"10px"}}/>
                             <ListItemText   primary={type.title}/>
-                            {/* <Typography variant="h3" sx={{...menuListItemTitle}} key={index}>{type.title}</Typography> */}
                           </ListItem>
                         </List>
                       )
                     })}
                   </NestedMenuItem>
-                
               )
             })
           }
