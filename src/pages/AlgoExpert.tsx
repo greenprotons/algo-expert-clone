@@ -1,5 +1,6 @@
 import React from 'react'
 import AllAlgoSteps from '../components/AlgoExpertSteps/AllAlgoSteps'
+import EngineerSliderList from '../components/EngineerSliderList'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero/Hero'
 import InterviewTable from '../components/InterviewTable'
@@ -14,6 +15,7 @@ const AlgoExpert = () => {
         <AllAlgoSteps/> 
         <InterviewTable/>
         <Outcomes/>
+        <EngineerSliderList/>
         <Footer/>
     </>
   )
