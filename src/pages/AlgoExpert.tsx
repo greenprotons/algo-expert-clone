@@ -6,6 +6,7 @@ import Hero from '../components/Hero/Hero'
 import InterviewTable from '../components/InterviewTable'
 import MainNavigation from '../components/MainNavigation'
 import Outcomes from '../components/Outcomes'
+import SpanningCategoriesList from '../components/SpanningCategoriesList'
 
 const AlgoExpert = () => {
   return (
@@ -16,6 +17,7 @@ const AlgoExpert = () => {
         <InterviewTable/>
         <Outcomes/>
         <EngineerSliderList/>
+        <SpanningCategoriesList/>
         <Footer/>
     </>
   )

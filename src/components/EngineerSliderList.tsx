@@ -1,7 +1,18 @@
-import { Box,Button,Typography,Card ,CardContent ,CardMedia  } from '@mui/material'
+import { Box,Button,Typography,Paper ,CardContent ,CardMedia  } from '@mui/material'
 import React from 'react'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+
+import Card from './Card';
+
+import Carousel from "react-material-ui-carousel";
+
+const breakPointss = [
+    { width: "1px", itemsToShow: 1 },
+    { width: "550px", itemsToShow: 2, itemsToScroll: 2 },
+    { width: "768px", itemsToShow: 3 },
+    { width: "1200px", itemsToShow: 4 }
+  ];
 
 function createData(
     image:string,
@@ -23,9 +34,9 @@ const allEngineersData = [
     createData("https://assets.algoexpert.io/spas/main/prod/ga1a934c586-prod/dist/images/ddea69f603de80265d0f.jpg","Onyeka","Web Developer","https://assets.algoexpert.io/spas/main/prod/ga1a934c586-prod/dist/images/9571632cbce64faa29c2.png","You can choose to spend your time scouring the internet for resources, or you can invest your money wisely and get as good a resource as you'll need. AlgoExpert is a big league product, with a high quality selection of algorithms and expert explanations. This is the best place to sharpen your problem solving skills on all the best material."),
     createData("https://assets.algoexpert.io/spas/main/prod/ga1a934c586-prod/dist/images/ac3ed816e6b39ca926a5.jpg","Ayoub","Software Engineer Intern","https://assets.algoexpert.io/spas/main/prod/ga1a934c586-prod/dist/images/52d8f54e445899c1e716.png","Hey, just wanted to thank you for AlgoExpert! I signed up a few months back and I went through 60% of the problems. Before AlgoExpert I was awful at solving anything harder than a LeetCode easy, now I can do LeetCode mediums without much effort and tackle LeetCode hards in a reasonable time frame! I dont think I would have gotten an internship without AlgoExpert, so thank you!"),
     createData("https://assets.algoexpert.io/spas/main/prod/ga1a934c586-prod/dist/images/82b39796603734f6c314.jpg","Sreepriya","Software Engineer","https://assets.algoexpert.io/spas/main/prod/ga1a934c586-prod/dist/images/b2bd91d7b87b2181ca45.png","I've done Udemy, Udacity, Interview Cake, Educative, Egghead, Pluralsight, MIT OpenCourseWare, LeetCode, CodeSignal and various Youtube courses but this stuff that you all are putting out is among the best. Great work!"),
-    createData("	https://assets.algoexpert.io/spas/main/prod/ga1a934c586-prod/dist/images/083586f534608d90c9f3.jpg","Eren","Data Engineer","https://assets.algoexpert.io/spas/main/prod/ga1a934c586-prod/dist/images/0384060dcbf73b6a707c.png","I've done Udemy, Udacity, Interview Cake, Educative, Egghead, Pluralsight, MIT OpenCourseWare, LeetCode, CodeSignal and various Youtube courses but this stuff that you all are putting out is among the best. Great work!"),
-    createData("	https://assets.algoexpert.io/spas/main/prod/ga1a934c586-prod/dist/images/68e1094f7b6748b70db5.jpg","Jeremy","Analyst","https://assets.algoexpert.io/spas/main/prod/ga1a934c586-prod/dist/images/6c585c33ca6c71c79bb7.png","I've done Udemy, Udacity, Interview Cake, Educative, Egghead, Pluralsight, MIT OpenCourseWare, LeetCode, CodeSignal and various Youtube courses but this stuff that you all are putting out is among the best. Great work!"),
-    createData("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4w…KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==","You","Dream Job","","Got an AlgoExpert success story to share? Tell us  where you work, what your position is, how helpful AlgoExpert was in getting it, and give us a link to your LinkedIn profile!"),
+    createData("https://assets.algoexpert.io/spas/main/prod/ga1a934c586-prod/dist/images/083586f534608d90c9f3.jpg","Eren","Data Engineer","https://assets.algoexpert.io/spas/main/prod/ga1a934c586-prod/dist/images/0384060dcbf73b6a707c.png","I've done Udemy, Udacity, Interview Cake, Educative, Egghead, Pluralsight, MIT OpenCourseWare, LeetCode, CodeSignal and various Youtube courses but this stuff that you all are putting out is among the best. Great work!"),
+    createData("https://assets.algoexpert.io/spas/main/prod/ga1a934c586-prod/dist/images/68e1094f7b6748b70db5.jpg","Jeremy","Analyst","https://assets.algoexpert.io/spas/main/prod/ga1a934c586-prod/dist/images/6c585c33ca6c71c79bb7.png","I've done Udemy, Udacity, Interview Cake, Educative, Egghead, Pluralsight, MIT OpenCourseWare, LeetCode, CodeSignal and various Youtube courses but this stuff that you all are putting out is among the best. Great work!"),
+    createData("https://www.pngitem.com/pimgs/m/4-40070_user-staff-man-profile-user-account-icon-jpg.png","You","Dream Job","","Got an AlgoExpert success story to share? Tell us  where you work, what your position is, how helpful AlgoExpert was in getting it, and give us a link to your LinkedIn profile!"),
 ]
 const readMoreBtn = {
     bgcolor:"#fff",color:"#02203c",boxShadow: "0 2px 4px rgba(50,50,93,.1)!important",
@@ -33,16 +44,16 @@ const readMoreBtn = {
 }
 
 const EngineerSliderList = () => {
-    const [activeStep,setActiveStep] = React.useState(0);
+    const [items, setItems] = React.useState([1, 2, 3, 4, 5, 6, 7, 8]);
     const maxSteps = allEngineersData.length;
 
-    const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-      };
+    // const handleNext = () => {
+    //     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    //   };
     
-      const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-      };
+    //   const handleBack = () => {
+    //     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    //   };
 
     const logoStyle={
         display:"flex",
@@ -59,25 +70,36 @@ const EngineerSliderList = () => {
     const controlButtons = {
         alignItems: "center",
         bgcolor: "#fff",
-        // border: "none",
         borderRadius: "50%",
         boxShadow:" 0 2px 4px 1px rgb(50 50 93 / 10%)",
         display: "flex",
         height:" 40px",
         justifyContent: "center",
         margin: "0 10px",
-        
         minWidth: "40px",
     }
-    
+    console.log(items)
+
+    const itemStyle = {
+        display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "250px",
+  width: "100%",
+  backgroundColor: "#683bb7",
+  color: "#fff",
+  margin: "15px",
+  fontSize: "4em"
+    }
   return (
     <Box sx={{p:"100px 20px"}}>
       <Typography variant="h4" sx={{mb:"20px",color:"#02203c",textAlign:"center"}}>And Over 135,000 Satisfied Engineers.</Typography>
       <Box sx={{maxWidth:"1000px",m:"0 auto",overflow:"hidden",p:"5px"}}>
         <Box sx={{display:"-webkit-box",gap:"15px"}}>
-            {allEngineersData.map((item,index)=>{
+        {/* <Carousel breakPoints={breakPoints}>
+            {allEngineersData?.map((item,index)=>{
                 return(
-                    <Card sx={{ maxWidth: "325px",borderTop:"4px solid #626ee3",height:"320px",display:"flex",flexDirection:"column",position:"relative"}} key={index}>
+                    <Card sx={{maxWidth: "325px",mt:"1.5rem",borderTop:"4px solid #626ee3",height:"320px",display:"flex",flexDirection:"column",position:"relative",overflow:"initial"}}  id={index}  key={index}>
                         <Box sx={{...engineerImage}}>
                             <CardMedia
                                 component="img"
@@ -116,12 +138,18 @@ const EngineerSliderList = () => {
                     </Card>
                 )
             })}    
+            </Carousel> */}
+            <Carousel breakPoints={breakPointss}>
+          {items.map((item) => (
+            <Box key={item} sx={{...itemStyle}}>{item}</Box>
+          ))}
+        </Carousel>
         </Box>
             <Box sx={{
                 display: "flex",
                 justifyContent: "center",
                 p:"30px 0 0"}}>
-                        <Button onClick={handleBack} disabled={activeStep === 0}
+                        <Button 
                                 sx={{...controlButtons,"&.MuiButton-root:hover":{
                                                         boxShadow:" 0 6px 10px 2px rgb(50 50 93 / 10%)",
                                                         transform:" translateY(-3px)",
@@ -129,7 +157,7 @@ const EngineerSliderList = () => {
                             }}}>
                                 <ArrowBackIcon sx={{width:"20px",color:"#626ee3"}}/>
                         </Button>
-                        <Button onClick={handleNext} disabled={activeStep === maxSteps - 1}
+                        <Button 
                                 sx={{...controlButtons,"&.MuiButton-root:hover":{
                                                         boxShadow:" 0 6px 10px 2px rgb(50 50 93 / 10%)",
                                                         transform:" translateY(-3px)",
