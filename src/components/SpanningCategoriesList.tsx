@@ -9,8 +9,8 @@ const SpanningCategoriesList = () => {
         transition: "transform .2s ease-in-out", color:"#fff"
     }
     const listStyle = {
-      color: "#fff", display: "grid", gap: "40px", mt:"40px",
-      gridTemplateColumns: "1fr 1fr 1fr", margin: "0 auto",  maxWidth: "1000px", padding: 0,
+      color: "#fff", display: "grid", gap: "40px", 
+      gridTemplateColumns: "1fr 1fr 1fr", margin: "0 auto",  maxWidth: "1000px", padding: 0,mt:"40px",
      
     }
     const mainBoxStyle = {

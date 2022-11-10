@@ -1,6 +1,6 @@
 import { Box,Typography,Divider } from '@mui/material'
 import Link from '@mui/material/Link';
-
+import DividerComponent from './DividerComponent';
 const Footer = () => {
 
     const footerLinkItems = [
@@ -23,11 +23,7 @@ const Footer = () => {
   return (
     <>
         <Box sx={{bgcolor:"#02203c",color:"#fff",fontFamily:"Open Sans,Helvetica,Arial,sans-serif"}}>
-            <Box sx={{
-                borderBottom: "1px solid #e3e3e3",
-                width:"85%",
-                m:"0 auto"
-            }}></Box>
+            <DividerComponent/>
             <Box sx={{
                 p:"30px 20px",
                 display:"flex",
