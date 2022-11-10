@@ -5,6 +5,7 @@ import EngineerSliderList from '../components/EngineerSliderList'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero/Hero'
 import InterviewTable from '../components/InterviewTable'
+import LanguageList from '../components/LanguageList'
 import MainNavigation from '../components/MainNavigation'
 import Outcomes from '../components/Outcomes'
 import SpanningCategoriesList from '../components/SpanningCategoriesList'
@@ -22,6 +23,7 @@ const AlgoExpert = () => {
         <SpanningCategoriesList/>
         <VideoOverView/>
         <DataStrutureCourse/>
+        <LanguageList/>
         <Footer/>
     </>
   )
