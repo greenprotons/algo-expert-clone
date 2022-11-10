@@ -5,7 +5,7 @@ import DividerDark from './DividerDark';
 
 const DataStrutureCourse = () => {
     const arrowSign = {
-        cursor: "pointer", fontSize: "40px", left: "91%", position: "absolute", top: "1.5vh",
+        cursor: "pointer", fontSize: "40px", left: "91%", position: "absolute", top: "20px",
         transition: "transform .2s ease-in-out", color:"#626ee3"
     }
     const imageBoxStyle = {
@@ -24,7 +24,7 @@ const DataStrutureCourse = () => {
     }
   return (
     <>
-    <Box sx={{p:"100px 20px"}}>
+    <Box sx={{p:"100px 20px",position:"relative"}}>
       <ArrowUpwardIcon sx={{...arrowSign,"&.MuiSvgIcon-root:hover":{
          transform: "scale(1.2)"
       }}}/>
