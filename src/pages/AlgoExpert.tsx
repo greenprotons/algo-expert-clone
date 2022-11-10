@@ -1,5 +1,6 @@
 import React from 'react'
 import AllAlgoSteps from '../components/AlgoExpertSteps/AllAlgoSteps'
+import DataStrutureCourse from '../components/DataStrutureCourse'
 import EngineerSliderList from '../components/EngineerSliderList'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero/Hero'
@@ -20,6 +21,7 @@ const AlgoExpert = () => {
         <EngineerSliderList/>
         <SpanningCategoriesList/>
         <VideoOverView/>
+        <DataStrutureCourse/>
         <Footer/>
     </>
   )
