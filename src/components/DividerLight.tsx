@@ -1,6 +1,6 @@
 import React from 'react'
 import {Box} from '@mui/material'
-const DividerComponent = () => {
+const DividerLight = () => {
   return (
     <Box sx={{
         borderBottom: "1px solid #e3e3e3",
@@ -11,4 +11,4 @@ const DividerComponent = () => {
   )
 }
 
-export default DividerComponent
+export default DividerLight

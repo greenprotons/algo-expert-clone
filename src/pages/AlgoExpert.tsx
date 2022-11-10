@@ -7,6 +7,7 @@ import InterviewTable from '../components/InterviewTable'
 import MainNavigation from '../components/MainNavigation'
 import Outcomes from '../components/Outcomes'
 import SpanningCategoriesList from '../components/SpanningCategoriesList'
+import VideoOverView from '../components/VideoOverView'
 
 const AlgoExpert = () => {
   return (
@@ -18,6 +19,7 @@ const AlgoExpert = () => {
         <Outcomes/>
         <EngineerSliderList/>
         <SpanningCategoriesList/>
+        <VideoOverView/>
         <Footer/>
     </>
   )
