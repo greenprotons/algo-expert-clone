@@ -5,6 +5,7 @@ import EngineerSliderList from '../components/EngineerSliderList'
 import Footer from '../components/Footer'
 import Hero from '../components/Hero/Hero'
 import InterviewTable from '../components/InterviewTable'
+import InterviewWays from '../components/InterviewWays'
 import LanguageList from '../components/LanguageList'
 import MainNavigation from '../components/MainNavigation'
 import NotationLanguage from '../components/NotationLanguage'
@@ -28,6 +29,7 @@ const AlgoExpert = () => {
         <LanguageList/>
         <PracticeEnvironment/>
         <NotationLanguage/>
+        <InterviewWays/>
         <Footer/>
     </>
   )
