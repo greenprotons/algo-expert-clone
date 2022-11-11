@@ -8,6 +8,7 @@ import InterviewTable from '../components/InterviewTable'
 import LanguageList from '../components/LanguageList'
 import MainNavigation from '../components/MainNavigation'
 import Outcomes from '../components/Outcomes'
+import PracticeEnvironment from '../components/PracticeEnvironment'
 import SpanningCategoriesList from '../components/SpanningCategoriesList'
 import VideoOverView from '../components/VideoOverView'
 
@@ -24,6 +25,7 @@ const AlgoExpert = () => {
         <VideoOverView/>
         <DataStrutureCourse/>
         <LanguageList/>
+        <PracticeEnvironment/>
         <Footer/>
     </>
   )
