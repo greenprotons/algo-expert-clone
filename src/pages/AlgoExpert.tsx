@@ -7,6 +7,7 @@ import Hero from '../components/Hero/Hero'
 import InterviewTable from '../components/InterviewTable'
 import LanguageList from '../components/LanguageList'
 import MainNavigation from '../components/MainNavigation'
+import NotationLanguage from '../components/NotationLanguage'
 import Outcomes from '../components/Outcomes'
 import PracticeEnvironment from '../components/PracticeEnvironment'
 import SpanningCategoriesList from '../components/SpanningCategoriesList'
@@ -26,6 +27,7 @@ const AlgoExpert = () => {
         <DataStrutureCourse/>
         <LanguageList/>
         <PracticeEnvironment/>
+        <NotationLanguage/>
         <Footer/>
     </>
   )
