@@ -1,6 +1,7 @@
 body{
   margin: 0;
   background-color: #f6f9fc;
+  overflow-x: hidden;
 }
 /* :root {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;

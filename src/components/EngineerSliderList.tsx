@@ -1,19 +1,11 @@
-import { Box,Button,Typography,Paper ,CardContent ,CardMedia  } from '@mui/material'
-import React from 'react'
+import { Box,Button,Typography ,CardContent ,CardMedia,Card  } from '@mui/material'
+import React, { useEffect, useRef } from 'react'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 
-import Card from './Card';
-
-import Carousel from "react-material-ui-carousel";
-
-const breakPointss = [
-    { width: "1px", itemsToShow: 1 },
-    { width: "550px", itemsToShow: 2, itemsToScroll: 2 },
-    { width: "768px", itemsToShow: 3 },
-    { width: "1200px", itemsToShow: 4 }
-  ];
-
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 function createData(
     image:string,
     name:string,
@@ -44,17 +36,6 @@ const readMoreBtn = {
 }
 
 const EngineerSliderList = () => {
-    const [items, setItems] = React.useState([1, 2, 3, 4, 5, 6, 7, 8]);
-    const maxSteps = allEngineersData.length;
-
-    // const handleNext = () => {
-    //     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    //   };
-    
-    //   const handleBack = () => {
-    //     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    //   };
-
     const logoStyle={
         display:"flex",
         margin:"5px auto",
@@ -78,28 +59,55 @@ const EngineerSliderList = () => {
         margin: "0 10px",
         minWidth: "40px",
     }
-    console.log(items)
 
-    const itemStyle = {
-        display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  height: "250px",
-  width: "100%",
-  backgroundColor: "#683bb7",
-  color: "#fff",
-  margin: "15px",
-  fontSize: "4em"
-    }
+    const settings = {
+        dots: false,
+        infinite: false,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        initialSlide: 0,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 1,
+              infinite: false,
+              dots: false,
+            },
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              initialSlide: 0,
+            },
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+            },
+          },
+        ],
+      };
+
+      const sliderRef = useRef(null)
+      useEffect(()=>{
+          console.log(sliderRef.current)
+      },[]);
   return (
     <Box sx={{p:"100px 20px"}}>
       <Typography variant="h4" sx={{mb:"20px",color:"#02203c",textAlign:"center"}}>And Over 135,000 Satisfied Engineers.</Typography>
       <Box sx={{maxWidth:"1000px",m:"0 auto",overflow:"hidden",p:"5px"}}>
-        <Box sx={{display:"-webkit-box",gap:"15px"}}>
-        {/* <Carousel breakPoints={breakPoints}>
+        <Slider ref={sliderRef} {...settings}>
             {allEngineersData?.map((item,index)=>{
                 return(
-                    <Card sx={{maxWidth: "325px",mt:"1.5rem",borderTop:"4px solid #626ee3",height:"320px",display:"flex",flexDirection:"column",position:"relative",overflow:"initial"}}  id={index}  key={index}>
+                    <Box sx={{display:"-webkit-box",gap:"15px"}}>
+                    <Card sx={{maxWidth: "325px",mt:"2rem",borderTop:"4px solid #626ee3",height:"320px",display:"flex",flexDirection:"column",position:"relative",overflow:"initial"}}  key={index}>
                         <Box sx={{...engineerImage}}>
                             <CardMedia
                                 component="img"
@@ -136,20 +144,15 @@ const EngineerSliderList = () => {
                             </Box>
                         </CardContent>
                     </Card>
+              </Box> 
                 )
-            })}    
-            </Carousel> */}
-            <Carousel breakPoints={breakPointss}>
-          {items.map((item) => (
-            <Box key={item} sx={{...itemStyle}}>{item}</Box>
-          ))}
-        </Carousel>
-        </Box>
+            })}
+        </Slider>
             <Box sx={{
                 display: "flex",
                 justifyContent: "center",
                 p:"30px 0 0"}}>
-                        <Button 
+                        <Button onClick={()=>sliderRef.current.slickPrev()}   
                                 sx={{...controlButtons,"&.MuiButton-root:hover":{
                                                         boxShadow:" 0 6px 10px 2px rgb(50 50 93 / 10%)",
                                                         transform:" translateY(-3px)",
@@ -157,7 +160,7 @@ const EngineerSliderList = () => {
                             }}}>
                                 <ArrowBackIcon sx={{width:"20px",color:"#626ee3"}}/>
                         </Button>
-                        <Button 
+                        <Button  onClick={()=>sliderRef.current.slickNext()} 
                                 sx={{...controlButtons,"&.MuiButton-root:hover":{
                                                         boxShadow:" 0 6px 10px 2px rgb(50 50 93 / 10%)",
                                                         transform:" translateY(-3px)",
@@ -180,3 +183,7 @@ const EngineerSliderList = () => {
 }
 
 export default EngineerSliderList
+function focus() {
+    throw new Error('Function not implemented.');
+}
+
